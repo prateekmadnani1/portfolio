@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Prateek Madnani · Technical Product Manager</title>
+<meta name="description" content="Prateek Madnani, Senior Technical Product Manager in Seattle. Case studies in AI products and cloud platforms across legal tech, healthcare and payments.">
+<meta name="author" content="Prateek Madnani">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Prateek Madnani · Technical Product Manager">
+<meta property="og:description" content="Prateek Madnani, Senior Technical Product Manager in Seattle. Case studies in AI products and cloud platforms across legal tech, healthcare and payments.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%233E5C4E'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-style='italic' font-size='30' font-weight='600' text-anchor='middle' fill='%23F4EFE1'%3EPM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500;1,600&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Layout: a working notebook. Narrative in the main column, pulled numbers
+     and asides in a ruled margin column, one two-column "entry" per idea. */
+  :root{
+    --paper: #F4EFE1;
+    --ink: #2B2A28;
+    --ink-soft: #6B6459;
+    --rule: #D8CFB8;
+    --accent: #3E5C4E;
+    --accent-tint: #E4E9DE;
+    --mustard: #A47E3B;
+    --on-accent: #F4EFE1;
+
+    --font-display: 'Lora', Georgia, 'Times New Roman', serif;
+    --font-body: 'Karla', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 1rem;
+    --space-4: 1.5rem;
+    --space-5: 2rem;
+    --space-6: 3rem;
+    --space-7: 4.5rem;
+    --space-8: 6rem;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper: #1C1B18;
+      --ink: #ECE5D3;
+      --ink-soft: #A99F8C;
+      --rule: #3B372F;
+      --accent: #93BDA6;
+      --accent-tint: #26302A;
+      --mustard: #D4A857;
+      --on-accent: #1C1B18;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper: #1C1B18;
+    --ink: #ECE5D3;
+    --ink-soft: #A99F8C;
+    --rule: #3B372F;
+    --accent: #93BDA6;
+    --accent-tint: #26302A;
+    --mustard: #D4A857;
+    --on-accent: #1C1B18;
+    color-scheme: dark;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation: none !important; transition: none !important; }
+  }
+
+  body{
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3{ font-family: var(--font-display); text-wrap: balance; }
+  a{ color: var(--accent); text-underline-offset: 3px; }
+  a:hover{ color: var(--mustard); }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .wrap{ max-width: 980px; margin: 0 auto; padding-inline: var(--space-4); }
+  [id]{ scroll-margin-top: 5rem; }
+
+  /* ---------- nav ---------- */
+  .nav{
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--rule);
+  }
+  .nav-inner{
+    max-width: 980px; margin: 0 auto; padding: var(--space-3) var(--space-4);
+    display: flex; justify-content: space-between; align-items: center; gap: var(--space-3);
+  }
+  .nav-name{ font-family: var(--font-display); font-weight: 600; text-decoration: none; color: var(--ink); white-space: nowrap; }
+  .nav-links{ display: flex; gap: var(--space-4); list-style: none; margin: 0; padding: 0; min-width: 0; }
+  .nav-links a{ text-decoration: none; color: var(--ink-soft); font-size: 0.92rem; white-space: nowrap; padding-block: 2px; border-bottom: 1.5px solid transparent; }
+  .nav-links a:hover{ color: var(--accent); }
+  .nav-links a.is-current{ color: var(--accent); border-bottom-color: var(--accent); }
+  @media (max-width: 860px){
+    [id]{ scroll-margin-top: 6.5rem; }
+    .nav-inner{ flex-direction: column; align-items: flex-start; gap: var(--space-2); padding-block: var(--space-3) var(--space-2); }
+    .nav-links{ width: 100%; overflow-x: auto; gap: var(--space-3); padding-bottom: var(--space-2); scrollbar-width: none; }
+    .nav-links::-webkit-scrollbar{ display: none; }
+  }
+
+  /* ---------- entry: main column + margin note ---------- */
+  .entry{
+    display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: var(--space-6);
+    padding-block: var(--space-6); border-top: 1px solid var(--rule);
+  }
+  @media (max-width: 760px){
+    .entry{ grid-template-columns: minmax(0, 1fr); gap: var(--space-3); padding-block: var(--space-5); }
+    .entry-note{ border-left: none !important; padding-left: 0 !important; border-top: 1px dashed var(--rule); padding-top: var(--space-3); }
+  }
+
+  .entry-main{ max-width: 66ch; min-width: 0; }
+  .entry-main h2{
+    font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-soft); margin: 0 0 var(--space-4);
+  }
+  .entry-main h3{ font-size: clamp(1.3rem, 2.6vw, 1.55rem); font-weight: 600; line-height: 1.25; margin: 0 0 var(--space-2); }
+  .entry-main p{ margin: 0 0 var(--space-3); }
+  .entry-main p:last-child{ margin-bottom: 0; }
+  .meta{ color: var(--ink-soft); font-size: 0.92rem; margin: 0 0 var(--space-3) !important; }
+
+  .entry-note{
+    border-left: 1px solid var(--rule); padding-left: var(--space-4);
+    font-size: 0.92rem; color: var(--ink-soft); align-self: start; min-width: 0;
+  }
+  .entry-note p{ margin: 0 0 var(--space-3); }
+  .entry-note p:last-child{ margin-bottom: 0; }
+  .entry-note .stat{ display: block; font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--accent); line-height: 1.2; font-variant-numeric: tabular-nums; }
+  .note-label{ font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: var(--space-2) !important; }
+  .note-list{ list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+
+  /* ---------- hero ---------- */
+  .hero{ padding-block: var(--space-8) var(--space-6); border-top: none; }
+  .hero-main .kicker{ color: var(--ink-soft); font-size: 1rem; margin: 0 0 var(--space-3); }
+  .hero-main h1{
+    font-size: clamp(2.4rem, 6.5vw, 3.6rem); font-weight: 600; font-style: italic;
+    margin: 0 0 var(--space-3); line-height: 1.08; letter-spacing: -0.01em;
+    animation: settle .7s ease-out both;
+  }
+  .hero-main .tagline{ font-size: clamp(1.1rem, 2.2vw, 1.3rem); color: var(--ink-soft); max-width: 44ch; margin: 0; }
+  @keyframes settle{ from{ transform: translateY(8px); } to{ transform: translateY(0); } }
+
+  .tag{
+    display: inline-block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: var(--space-2);
+  }
+
+  /* ---------- lists of items (projects, writing) ---------- */
+  .items{ display: grid; gap: var(--space-4); margin-top: var(--space-3); }
+  .item-kind{ font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 var(--space-1) !important; }
+  .item-title{ font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; line-height: 1.3; margin: 0 0 var(--space-1); }
+  .item p{ margin: 0 0 var(--space-1); }
+  .item-link{ font-weight: 600; font-size: 0.95rem; }
+
+  /* ---------- skills ---------- */
+  .skill-list{ display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: var(--space-3) var(--space-4); margin: 0; }
+  .skill-list dt{ font-weight: 600; }
+  .skill-list dd{ margin: 0; min-width: 0; }
+  @media (max-width: 520px){
+    .skill-list{ grid-template-columns: minmax(0, 1fr); gap: var(--space-1); }
+    .skill-list dd{ margin-bottom: var(--space-3); }
+  }
+
+  /* ---------- experience ---------- */
+  .exp-line{ padding-block: var(--space-3); border-top: 1px dashed var(--rule); }
+  .exp-line:first-of-type{ border-top: none; padding-top: 0; }
+  .exp-head{ display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--space-1) var(--space-3); }
+  .exp-head .where{ color: var(--ink); }
+  .dates{ color: var(--ink-soft); font-size: 0.9rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .exp-desc{ margin: var(--space-1) 0 0 !important; color: var(--ink-soft); font-size: 0.95rem; max-width: 60ch; }
+
+  /* ---------- mockups: wireframe sketches in dashed frames ---------- */
+  .mockup-grid{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-4); margin-top: var(--space-2); }
+  .mockup-grid figure{ margin: 0; min-width: 0; }
+  .frame{
+    aspect-ratio: 4 / 3; max-width: 100%; border: 1px dashed var(--rule); border-radius: 3px;
+    display: flex; align-items: center; justify-content: center; padding: var(--space-3);
+  }
+  .wf{ width: 100%; height: 100%; display: block; }
+  .wf-panel{ fill: var(--rule); opacity: 0.55; }
+  .wf-panel-soft{ fill: var(--rule); opacity: 0.28; }
+  .wf-bar{ fill: var(--rule); }
+  .wf-bar-soft{ fill: var(--rule); opacity: 0.6; }
+  .wf-track{ fill: var(--rule); opacity: 0.5; }
+  .wf-fillbar{ fill: var(--accent); }
+  .wf-dot{ fill: var(--accent); }
+  .wf-dot-outline{ fill: var(--paper); stroke: var(--ink-soft); stroke-width: 1.5; }
+  .wf-rule{ stroke: var(--rule); stroke-width: 1; fill: none; }
+  .wf-tint{ fill: var(--accent-tint); }
+  .wf-highlight{ fill: var(--accent-tint); stroke: var(--accent); stroke-width: 1; }
+  .wf-doc{ fill: var(--paper); stroke: var(--rule); stroke-width: 1.5; }
+  .wf-field{ fill: none; stroke: var(--rule); stroke-width: 1.5; }
+  .wf-btn{ fill: var(--accent); }
+  .wf-arrow{ fill: none; stroke: var(--ink-soft); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .wf-chart-line{ fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .wf-chart-axis{ stroke: var(--ink-soft); stroke-width: 1.5; fill: none; }
+  .wf-chart-marker{ stroke: var(--mustard); stroke-width: 1.5; stroke-dasharray: 3 3; fill: none; }
+  .wf-marker-fill{ fill: var(--mustard); }
+  .wf-phone{ fill: var(--paper); stroke: var(--ink-soft); stroke-width: 1.5; }
+  .wf-ring-track{ fill: none; stroke: var(--rule); stroke-width: 8; }
+  .wf-ring{ fill: none; stroke: var(--accent); stroke-width: 8; stroke-linecap: round; }
+  .mockup-grid figcaption{ margin-top: var(--space-2); }
+  .mockup-grid figcaption strong{ display: block; font-weight: 600; font-size: 0.95rem; }
+  .mockup-grid figcaption span{ display: block; margin-top: 2px; font-size: 0.87rem; color: var(--ink-soft); }
+  @media (max-width: 520px){ .mockup-grid{ grid-template-columns: minmax(0, 1fr); } }
+
+  /* ---------- contact ---------- */
+  .btn{
+    display: inline-block; background: var(--accent); color: var(--on-accent);
+    padding: 0.65rem 1.2rem; border: none; border-radius: 2px; cursor: pointer;
+    text-decoration: none; font-family: var(--font-body); font-weight: 600; font-size: 0.95rem;
+  }
+  .btn:hover{ background: var(--mustard); color: var(--on-accent); }
+  .contact-links{ display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-4); align-items: center; margin-top: var(--space-4); }
+  .email{ font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; word-break: break-all; }
+
+  footer{ padding-block: var(--space-5) var(--space-6); color: var(--ink-soft); font-size: 0.88rem; border-top: 1px solid var(--rule); }
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Sections">
+  <div class="nav-inner">
+    <a class="nav-name" href="#top">Prateek Madnani</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#mockups">Mockups</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ================= HERO ================= -->
+  <section class="entry hero" id="top">
+    <div class="entry-main hero-main">
+      <p class="kicker">Senior Technical Product Manager · Seattle, WA</p>
+      <h1>Prateek Madnani</h1>
+      <p class="tagline">Engineer turned product manager. I build AI products and cloud platforms for legal tech, healthcare and payments.</p>
+    </div>
+    <div class="entry-note">
+      <p><span class="stat">6+ years</span>building and shipping software, from Java engineer to product lead</p>
+      <p><span class="stat">5 industries</span>legal tech, fintech, healthcare, retail and travel technology</p>
+      <p>Now leading platform modernization at AgingOptions.</p>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="entry" id="about">
+    <div class="entry-main">
+      <h2>About</h2>
+      <p>I started out as a software engineer in Bengaluru, building Java services and cloud microservices at Checkpoint Systems and Blackhawk Network. Over time the questions I cared about shifted from how to build something to what we should build, who it is for, and how we would know it worked. That pulled me into product.</p>
+      <p>Today I lead platform modernization at AgingOptions in Seattle. Before that I owned AI and platform products at the American Arbitration Association and Dentite, and earned an MS in Management Information Systems at the University at Buffalo. My engineering background is what I lean on most: I can sit in an architecture review in the morning and an executive roadmap meeting in the afternoon, and translate between the two.</p>
+    </div>
+    <div class="entry-note">
+      <p>Most at home where AI, platforms and regulated industries meet: legal, healthcare and payments.</p>
+      <p>Keeping a 30-pages-a-day reading habit. Fifteen books in the first year.</p>
+    </div>
+  </section>
+
+  <!-- ================= WORK ================= -->
+  <div id="work">
+
+    <section class="entry">
+      <div class="entry-main">
+        <h2>Selected work</h2>
+        <span class="tag">AI product · Legal tech</span>
+        <h3>Resolution Simulator: a GenAI first look at arbitration claims</h3>
+        <p class="meta">Senior Consultant, American Arbitration Association · 2025–26</p>
+        <p>At the American Arbitration Association I was the technical product manager for the Resolution Simulator, an autonomous generative-AI platform that evaluates legal claims through multiple coordinated agents. It produces a baseline evaluation of a claim without needing an arbitrator.</p>
+        <p>I defined the product vision and set feature priorities, and worked with engineering on the multi-agent design. Requirements came from discovery sessions with the business teams who run the dispute process, which I turned into PRDs, technical specs, user stories and acceptance criteria.</p>
+      </div>
+      <div class="entry-note">
+        <p><span class="stat">−12%</span>settlement liabilities</p>
+        <p><span class="stat">0 arbitrators</span>needed for a baseline claim evaluation</p>
+        <p>Multi-agent GenAI orchestration</p>
+      </div>
+    </section>
+
+    <section class="entry">
+      <div class="entry-main">
+        <span class="tag">Healthcare AI</span>
+        <h3>Automating dental-to-medical insurance claims</h3>
+        <p class="meta">AI Product Engineer, Dentite · 2025</p>
+        <p>Dentite's platform handles over $1M in insurance claims every month. I defined the product vision and roadmap for automating dental-to-medical claims, prioritizing features built on AWS Bedrock, Llama 3.2 and Amazon Textract that cut manual claim processing and made reimbursements more accurate.</p>
+        <p>Health records carry protected patient information, so I also launched a HIPAA-compliant data protection platform. I wrote the specs for an automated data-cleansing pipeline that masks sensitive details in unstructured records, using Microsoft Presidio, which turned compliance audit reviews from a multi-day job into minutes.</p>
+      </div>
+      <div class="entry-note">
+        <p><span class="stat">+15%</span>reimbursement accuracy</p>
+        <p><span class="stat">90%</span>of unstructured data masked automatically</p>
+        <p><span class="stat">Days → minutes</span>for compliance audit reviews</p>
+      </div>
+    </section>
+
+    <section class="entry">
+      <div class="entry-main">
+        <span class="tag">Platform · Legal tech</span>
+        <h3>Moving a legacy legal-tech platform to the cloud</h3>
+        <p class="meta">Senior Technical Product Manager, AgingOptions · 2026–present</p>
+        <p>I joined AgingOptions in July 2026 to lead the modernization of its legal-tech platform from a legacy product into a scalable cloud-native one. I set the vision with executive stakeholders, weighing business priorities, customer pain points and technical constraints.</p>
+        <p>To turn that into a plan, I scored the work on value against effort and sequenced it into a phased release plan designed to keep customer churn risk low. With engineering I shaped the target architecture: backend services, CMS, CI/CD, observability and scaling. One early result came from treating internal developer tooling as a product. Automated CI/CD pipelines and centralized monitoring sped up releases and shortened the time to resolve outages.</p>
+      </div>
+      <div class="entry-note">
+        <p><span class="stat">+10%</span>release velocity</p>
+        <p><span class="stat">Lower MTTR</span>for platform outages</p>
+        <p>One roadmap across engineering, QA, DevOps, UX and the business</p>
+      </div>
+    </section>
+
+    <section class="entry">
+      <div class="entry-main">
+        <span class="tag">Payments infrastructure</span>
+        <h3>A developer platform for global payment systems</h3>
+        <p class="meta">Information Technology Consultant, Blackhawk Network · 2022–24</p>
+        <p>At Blackhawk Network I owned internal developer platform services used by the engineering teams behind global payment systems. I built the roadmap from the bottlenecks that platform engineers and architects described, and delivered event-driven services on AWS.</p>
+        <p>I wrote the requirements for a distributed API protection platform using Redis-backed rate limiting, which kept global payment APIs available under peak transaction loads. I also led the developer productivity roadmap, covering build and deploy services, Jenkins automation and feature flags, which standardized CI/CD across product teams.</p>
+      </div>
+      <div class="entry-note">
+        <p><span class="stat">−50%</span>engineering delivery time</p>
+        <p><span class="stat">99.99%</span>availability for global payment APIs</p>
+        <p><span class="stat">+35%</span>system stability over the peak holiday period</p>
+      </div>
+    </section>
+
+    <section class="entry">
+      <div class="entry-main">
+        <span class="tag">Hackathons &amp; side projects</span>
+        <h3>Things I built to learn</h3>
+        <div class="items">
+          <div class="item">
+            <p class="item-kind">Boon-AI Hackathon · 2025</p>
+            <p class="item-title">Logistics document extraction</p>
+            <p>In a four-hour hackathon I built a FastAPI service that uses the OpenAI API to pull structured fields out of logistics documents and match companies, including renamed or acquired ones, to a reference database. Pydantic handled schema validation.</p>
+            <a class="item-link" href="https://lnkd.in/gnjs6xnv" target="_blank" rel="noopener">See the project</a>
+          </div>
+          <div class="item">
+            <p class="item-kind">University at Buffalo · 2024</p>
+            <p class="item-title">halsa.ai</p>
+            <p>With a team of four, a recommendation model that suggests health insurance options to people without coverage and summarizes each plan so they don't have to read through the full documentation. Built with React and Python.</p>
+          </div>
+          <div class="item">
+            <p class="item-kind">Blackhawk hackathon · 2023</p>
+            <p class="item-title">HawkFit Rewards</p>
+            <p>An app that turns daily step counts into reward points people can redeem for gift cards. Built with React and Spring Boot.</p>
+          </div>
+          <div class="item">
+            <p class="item-kind">Engineering school · 2018–19</p>
+            <p class="item-title">Earlier projects</p>
+            <p>An LSTM model in Python to predict Bitcoin prices, an Android app for privacy-friendly location sharing, and a Django weather data system.</p>
+          </div>
+        </div>
+      </div>
+      <div class="entry-note">
+        <p><span class="stat">3rd of 50</span>teams at Blackhawk's hackathon with HawkFit Rewards</p>
+        <p>Hackathons are where I test whether I can still scope tightly and ship under pressure.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= RESEARCH ================= -->
+  <div id="research">
+
+    <section class="entry">
+      <div class="entry-main">
+        <h2>Research &amp; discovery</h2>
+        <h3>Data and AI for climate action, presented at the United Nations</h3>
+        <p>During my master's at UB I wrote a research paper on UN Sustainable Development Goal 13, Climate Action, and presented it at UN Headquarters in New York. The paper looks at how data analytics and AI can support smarter, faster decisions on climate change and its impacts. Presenting it reinforced how much progress depends on countries sharing data and innovation rather than acting alone.</p>
+      </div>
+      <div class="entry-note">
+        <p class="note-label">Research paper</p>
+        <p>Presented at UN Headquarters, New York</p>
+        <p>Mentored by Prof. Dorothy Siaw-Asamoah, UB School of Management</p>
+      </div>
+    </section>
+
+    <section class="entry">
+      <div class="entry-main">
+        <h3>Turning changing insurance rules into product requirements</h3>
+        <p>Dental-to-medical billing depends on insurance rules that keep changing. At Dentite I ran discovery with healthcare providers, billing specialists and compliance experts, documented what they needed, and translated regulation changes into prioritized features and engineering work. I tracked success on claims throughput, reimbursement accuracy, automation and compliance, and fed stakeholder feedback straight into the next round of priorities.</p>
+      </div>
+      <div class="entry-note">
+        <p class="note-label">Discovery</p>
+        <p>Providers, billing specialists and compliance experts</p>
+        <p>This work fed the +15% accuracy result above.</p>
+      </div>
+    </section>
+
+    <section class="entry">
+      <div class="entry-main">
+        <h3>Finding where arbitration workflows broke down</h3>
+        <p>Before writing requirements at the American Arbitration Association, I led discovery sessions with customers and internal stakeholders to find the operational pain points in the dispute process. Those sessions became the PRDs, technical specs, epics, user stories and acceptance criteria for teams building workflow products that had to meet regulatory requirements.</p>
+      </div>
+      <div class="entry-note">
+        <p class="note-label">Discovery</p>
+        <p>Customers and internal stakeholders</p>
+        <p>Output: PRDs, specs, epics, stories and acceptance criteria</p>
+      </div>
+    </section>
+
+    <section class="entry">
+      <div class="entry-main">
+        <h3>Market research for enterprise real estate</h3>
+        <p>As a product analyst with UB's School of Management, I worked with enterprise real estate clients on business process re-engineering. I ran competitive benchmarking, market research and user behavior analysis, then turned their operational problems into prioritized backlogs, roadmaps and functional specs for property leasing and management software.</p>
+      </div>
+      <div class="entry-note">
+        <p class="note-label">Market &amp; user research</p>
+        <p>Product Analyst, UB School of Management · 2024</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= MOCKUPS ================= -->
+  <section class="entry" id="mockups">
+    <div class="entry-main">
+      <h2>Product mockups</h2>
+      <div class="mockup-grid">
+
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 320 240" class="wf" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Sketch of a claim evaluation screen with the claim, three agent findings and a baseline evaluation">
+              <rect x="0" y="0" width="320" height="24" class="wf-panel"/>
+              <rect x="14" y="8" width="96" height="8" rx="4" class="wf-bar"/>
+              <rect x="14" y="36" width="130" height="136" rx="4" class="wf-panel-soft"/>
+              <rect x="24" y="48" width="70" height="7" rx="3.5" class="wf-bar"/>
+              <rect x="24" y="64" width="108" height="5" rx="2.5" class="wf-bar-soft"/>
+              <rect x="24" y="76" width="100" height="5" rx="2.5" class="wf-bar-soft"/>
+              <rect x="24" y="88" width="104" height="5" rx="2.5" class="wf-bar-soft"/>
+              <rect x="24" y="100" width="80" height="5" rx="2.5" class="wf-bar-soft"/>
+              <rect x="24" y="118" width="60" height="7" rx="3.5" class="wf-bar"/>
+              <rect x="24" y="134" width="108" height="5" rx="2.5" class="wf-bar-soft"/>
+              <rect x="24" y="146" width="92" height="5" rx="2.5" class="wf-bar-soft"/>
+              <rect x="156" y="36" width="150" height="38" rx="4" class="wf-field"/>
+              <circle cx="171" cy="55" r="5" class="wf-dot"/>
+              <rect x="184" y="47" width="80" height="6" rx="3" class="wf-bar"/>
+              <rect x="184" y="59" width="108" height="5" rx="2.5" class="wf-bar-soft"/>
+              <rect x="156" y="81" width="150" height="38" rx="4" class="wf-field"/>
+              <circle cx="171" cy="100" r="5" class="wf-dot"/>
+              <rect x="184" y="92" width="64" height="6" rx="3" class="wf-bar"/>
+              <rect x="184" y="104" width="100" height="5" rx="2.5" class="wf-bar-soft"/>
+              <rect x="156" y="126" width="150" height="38" rx="4" class="wf-field"/>
+              <circle cx="171" cy="145" r="5" class="wf-dot-outline"/>
+              <rect x="184" y="137" width="72" height="6" rx="3" class="wf-bar"/>
+              <rect x="184" y="149" width="96" height="5" rx="2.5" class="wf-bar-soft"/>
+              <rect x="14" y="184" width="292" height="44" rx="4" class="wf-tint"/>
+              <rect x="26" y="194" width="88" height="7" rx="3.5" class="wf-bar"/>
+              <rect x="26" y="210" width="200" height="8" rx="4" class="wf-track"/>
+              <rect x="26" y="210" width="128" height="8" rx="4" class="wf-fillbar"/>
+              <rect x="246" y="198" width="48" height="18" rx="3" class="wf-btn"/>
+            </svg>
+          </div>
+          <figcaption><strong>Resolution Simulator</strong><span>The claim on the left, findings from each agent on the right, and the baseline evaluation below.</span></figcaption>
+        </figure>
+
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 320 240" class="wf" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Sketch of claim intake with a scanned record on the left and extracted claim fields on the right">
+              <rect x="0" y="0" width="320" height="24" class="wf-panel"/>
+              <rect x="14" y="8" width="84" height="8" rx="4" class="wf-bar"/>
+              <rect x="18" y="34" width="120" height="196" rx="2" class="wf-doc"/>
+              <rect x="30" y="48" width="64" height="6" rx="3" class="wf-bar"/>
+              <rect x="30" y="66" width="96" height="4" rx="2" class="wf-bar-soft"/>
+              <rect x="30" y="78" width="88" height="4" rx="2" class="wf-bar-soft"/>
+              <rect x="30" y="90" width="92" height="4" rx="2" class="wf-bar-soft"/>
+              <rect x="26" y="102" width="104" height="14" rx="2" class="wf-highlight"/>
+              <rect x="30" y="107" width="72" height="4" rx="2" class="wf-bar"/>
+              <rect x="30" y="126" width="94" height="4" rx="2" class="wf-bar-soft"/>
+              <rect x="30" y="138" width="80" height="4" rx="2" class="wf-bar-soft"/>
+              <rect x="26" y="150" width="104" height="14" rx="2" class="wf-highlight"/>
+              <rect x="30" y="155" width="58" height="4" rx="2" class="wf-bar"/>
+              <rect x="30" y="174" width="96" height="4" rx="2" class="wf-bar-soft"/>
+              <rect x="30" y="186" width="84" height="4" rx="2" class="wf-bar-soft"/>
+              <rect x="30" y="198" width="90" height="4" rx="2" class="wf-bar-soft"/>
+              <line x1="148" y1="130" x2="172" y2="130" class="wf-arrow"/>
+              <path d="M166,125 L173,130 L166,135" class="wf-arrow"/>
+              <rect x="184" y="38" width="50" height="5" rx="2.5" class="wf-bar-soft"/>
+              <rect x="184" y="47" width="122" height="20" rx="3" class="wf-field"/>
+              <circle cx="294" cy="57" r="4.5" class="wf-dot"/>
+              <rect x="184" y="76" width="42" height="5" rx="2.5" class="wf-bar-soft"/>
+              <rect x="184" y="85" width="122" height="20" rx="3" class="wf-field"/>
+              <circle cx="294" cy="95" r="4.5" class="wf-dot"/>
+              <rect x="184" y="114" width="56" height="5" rx="2.5" class="wf-bar-soft"/>
+              <rect x="184" y="123" width="122" height="20" rx="3" class="wf-field"/>
+              <circle cx="294" cy="133" r="4.5" class="wf-dot"/>
+              <rect x="184" y="152" width="46" height="5" rx="2.5" class="wf-bar-soft"/>
+              <rect x="184" y="161" width="122" height="20" rx="3" class="wf-field"/>
+              <circle cx="294" cy="171" r="4.5" class="wf-dot-outline"/>
+              <rect x="256" y="206" width="50" height="18" rx="3" class="wf-btn"/>
+            </svg>
+          </div>
+          <figcaption><strong>Dental-to-medical claim intake</strong><span>A scanned record on the left and the extracted claim fields on the right.</span></figcaption>
+        </figure>
+
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 320 240" class="wf" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Sketch of a platform health dashboard where time to resolve outages drops after new tooling ships">
+              <rect x="0" y="0" width="320" height="24" class="wf-panel"/>
+              <rect x="14" y="8" width="100" height="8" rx="4" class="wf-bar"/>
+              <rect x="14" y="34" width="92" height="28" rx="3" class="wf-panel-soft"/>
+              <rect x="22" y="40" width="40" height="5" rx="2.5" class="wf-bar-soft"/>
+              <rect x="22" y="50" width="56" height="7" rx="3.5" class="wf-fillbar"/>
+              <rect x="114" y="34" width="92" height="28" rx="3" class="wf-panel-soft"/>
+              <rect x="122" y="40" width="40" height="5" rx="2.5" class="wf-bar-soft"/>
+              <rect x="122" y="50" width="48" height="7" rx="3.5" class="wf-bar"/>
+              <rect x="214" y="34" width="92" height="28" rx="3" class="wf-panel-soft"/>
+              <rect x="222" y="40" width="40" height="5" rx="2.5" class="wf-bar-soft"/>
+              <rect x="222" y="50" width="52" height="7" rx="3.5" class="wf-bar"/>
+              <line x1="40" y1="110" x2="300" y2="110" class="wf-rule"/>
+              <line x1="40" y1="144" x2="300" y2="144" class="wf-rule"/>
+              <line x1="40" y1="176" x2="300" y2="176" class="wf-rule"/>
+              <line x1="40" y1="78" x2="40" y2="208" class="wf-chart-axis"/>
+              <line x1="40" y1="208" x2="300" y2="208" class="wf-chart-axis"/>
+              <line x1="170" y1="78" x2="170" y2="208" class="wf-chart-marker"/>
+              <rect x="176" y="82" width="10" height="8" rx="2" class="wf-marker-fill"/>
+              <rect x="190" y="83" width="50" height="6" rx="3" class="wf-bar-soft"/>
+              <path d="M40,104 L72,96 L104,116 L136,100 L170,108 L202,150 L234,164 L266,172 L300,176" class="wf-chart-line"/>
+              <circle cx="300" cy="176" r="4.5" class="wf-dot"/>
+            </svg>
+          </div>
+          <figcaption><strong>Platform health view</strong><span>Time to resolve outages, before and after centralized monitoring and automated pipelines shipped.</span></figcaption>
+        </figure>
+
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 320 240" class="wf" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Sketch of a phone screen showing a daily step ring, reward points and gift cards">
+              <rect x="110" y="8" width="100" height="224" rx="14" class="wf-phone"/>
+              <rect x="146" y="16" width="28" height="4" rx="2" class="wf-bar-soft"/>
+              <circle cx="160" cy="76" r="30" class="wf-ring-track"/>
+              <circle cx="160" cy="76" r="30" class="wf-ring" stroke-dasharray="132 189" transform="rotate(-90 160 76)"/>
+              <rect x="143" y="70" width="34" height="7" rx="3.5" class="wf-bar"/>
+              <rect x="148" y="82" width="24" height="4" rx="2" class="wf-bar-soft"/>
+              <rect x="124" y="122" width="40" height="5" rx="2.5" class="wf-bar-soft"/>
+              <rect x="168" y="120" width="28" height="9" rx="4.5" class="wf-fillbar"/>
+              <rect x="122" y="140" width="36" height="26" rx="3" class="wf-panel"/>
+              <rect x="162" y="140" width="36" height="26" rx="3" class="wf-tint"/>
+              <rect x="122" y="170" width="36" height="26" rx="3" class="wf-tint"/>
+              <rect x="162" y="170" width="36" height="26" rx="3" class="wf-panel"/>
+              <rect x="122" y="206" width="76" height="16" rx="4" class="wf-btn"/>
+            </svg>
+          </div>
+          <figcaption><strong>HawkFit Rewards</strong><span>Daily steps fill the ring and earn points that can be redeemed for gift cards.</span></figcaption>
+        </figure>
+
+      </div>
+    </div>
+    <div class="entry-note">
+      <p>Simplified sketches of each product's main screen, redrawn for this page rather than screenshots of the shipped products.</p>
+    </div>
+  </section>
+
+  <!-- ================= WRITING ================= -->
+  <section class="entry" id="writing">
+    <div class="entry-main">
+      <h2>Writing &amp; podcast</h2>
+      <div class="items">
+        <div class="item">
+          <p class="item-kind">Book · 2026 · free PDF</p>
+          <p class="item-title">The Technical Product Manager Handbook: Interviews, Strategy, and Execution</p>
+          <p>A year of evenings and weekends turned into one guide covering structured problem solving, product discovery, data-driven decisions, consulting frameworks, system architecture and AI-first product development. Written for engineers moving into product and for anyone preparing for PM interviews.</p>
+        </div>
+        <div class="item">
+          <p class="item-kind">Podcast on Spotify · 2025</p>
+          <p class="item-title">The Pro Product Manager</p>
+          <p>Episodes on product strategy, system design and AI in products, for builders and for people preparing for PM interviews. I made it with AI as a thinking partner, using NotebookLM, Notion and Medium.</p>
+          <a class="item-link" href="https://lnkd.in/gEN45Cwu" target="_blank" rel="noopener">Listen to the podcast</a>
+        </div>
+        <div class="item">
+          <p class="item-kind">Research paper · University at Buffalo</p>
+          <p class="item-title">Data and AI for UN Sustainable Development Goal 13: Climate Action</p>
+          <p>Presented at UN Headquarters in New York. More in the research section above.</p>
+        </div>
+        <div class="item">
+          <p class="item-kind">Essays on LinkedIn</p>
+          <p class="item-title">Short pieces on building a career across two countries</p>
+          <p>On the OPT year, reading 30 pages a day, and the books that changed how I make decisions.</p>
+          <a class="item-link" href="https://www.linkedin.com/in/prateek-madnani/recent-activity/all/" target="_blank" rel="noopener">Read on LinkedIn</a>
+        </div>
+      </div>
+    </div>
+    <div class="entry-note">
+      <p>The handbook and the podcast both grew out of my own preparation for product manager interviews.</p>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section class="entry" id="skills">
+    <div class="entry-main">
+      <h2>Skills</h2>
+      <dl class="skill-list">
+        <dt>Product</dt>
+        <dd>Product strategy and roadmaps, product discovery, PRDs, specs and user stories, value-vs-effort prioritization, KPIs and data-driven decisions, stakeholder leadership, platform product management</dd>
+        <dt>AI</dt>
+        <dd>LLM and multi-agent products, AWS Bedrock, Llama, Amazon Textract, Microsoft Presidio, OpenAI API, Pydantic, NotebookLM</dd>
+        <dt>Engineering</dt>
+        <dd>Java, Spring Boot, Python, FastAPI, React, REST APIs, Kafka, Redis, SQL and NoSQL, Oracle Database</dd>
+        <dt>Cloud &amp; delivery</dt>
+        <dd>AWS, Azure (AKS, Event Hub), Kubernetes, Docker, Terraform, Jenkins, CI/CD, feature flags, observability</dd>
+        <dt>Tools</dt>
+        <dd>Atlassian suite, Lucidchart, Tableau, BigQuery, NetSuite, SendGrid</dd>
+      </dl>
+    </div>
+    <div class="entry-note">
+      <p class="note-label">Certifications</p>
+      <ul class="note-list">
+        <li>Product Manager Fellowship, NextLeap (2025)</li>
+        <li>Google Project Management Professional (2024)</li>
+        <li>Google AI Essentials (2024)</li>
+        <li>Generative AI for Product Managers, LinkedIn (2024)</li>
+        <li>Passed LinkedIn's Java skill assessment</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section class="entry" id="experience">
+    <div class="entry-main">
+      <h2>Experience</h2>
+
+      <div class="exp-line">
+        <div class="exp-head"><span><strong>Senior Technical Product Manager</strong>, <span class="where">AgingOptions, Seattle</span></span><span class="dates">Jul 2026 – Present</span></div>
+        <p class="exp-desc">Leading the modernization of a legacy legal-tech platform into a cloud-native product.</p>
+      </div>
+      <div class="exp-line">
+        <div class="exp-head"><span><strong>Senior Consultant</strong>, <span class="where">American Arbitration Association, New York</span></span><span class="dates">Jul 2025 – Jun 2026</span></div>
+        <p class="exp-desc">Technical PM for the Resolution Simulator. Also set strategy for a NetSuite-integrated payment platform (+35% throughput at 99.9% availability) and automated case notifications on SendGrid (−80% manual effort), and ran the roadmap that split legacy monoliths into microservices, making feature delivery 5x faster.</p>
+      </div>
+      <div class="exp-line">
+        <div class="exp-head"><span><strong>AI Product Engineer</strong> (internship), <span class="where">Dentite, Buffalo</span></span><span class="dates">Jan 2025 – Jun 2025</span></div>
+        <p class="exp-desc">AI automation for dental-to-medical insurance claims and a HIPAA-compliant data protection platform.</p>
+      </div>
+      <div class="exp-line">
+        <div class="exp-head"><span><strong>Product Analyst</strong> (internship), <span class="where">UB School of Management, Buffalo</span></span><span class="dates">Jul 2024 – Dec 2024</span></div>
+        <p class="exp-desc">Process re-engineering, market research and product backlogs for enterprise real estate clients.</p>
+      </div>
+      <div class="exp-line">
+        <div class="exp-head"><span><strong>Information Technology Consultant</strong>, <span class="where">Blackhawk Network, Bengaluru</span></span><span class="dates">Aug 2022 – Jul 2024</span></div>
+        <p class="exp-desc">Owned internal developer platform services for global payment systems.</p>
+      </div>
+      <div class="exp-line">
+        <div class="exp-head"><span><strong>Information Technology Analyst</strong>, <span class="where">Checkpoint Systems, Bengaluru</span></span><span class="dates">Aug 2020 – Aug 2022</span></div>
+        <p class="exp-desc">Led delivery of the RFID Location Upload service on Azure, processing over 10M location events a day for global retailers at 99.9% availability. Introduced Terraform, Docker and TestNG automation that sped up release cycles by 25%.</p>
+      </div>
+      <div class="exp-line">
+        <div class="exp-head"><span><strong>Software Engineer Intern</strong>, <span class="where">Checkpoint Systems, Bengaluru</span></span><span class="dates">Jan 2020 – Aug 2020</span></div>
+        <p class="exp-desc">Where my career started.</p>
+      </div>
+    </div>
+    <div class="entry-note">
+      <p class="note-label">Education</p>
+      <p><strong>MS, Management Information Systems</strong><br>University at Buffalo, 2024–25<br>GPA 3.95 / 4.0</p>
+      <p><strong>BE, Information Technology</strong><br>Visvesvaraya Technological University, 2016–20<br>First Class with Distinction</p>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="entry" id="contact">
+    <div class="entry-main">
+      <h2>Contact</h2>
+      <p>Email is the best way to reach me. I'm always glad to talk about AI products, platform modernization, or making the move from engineering into product.</p>
+      <p><a class="email" id="email-text" href="mailto:prateekmadnani01@gmail.com">prateekmadnani01@gmail.com</a></p>
+      <div class="contact-links">
+        <button type="button" class="btn" id="copy-email">Copy email</button>
+        <a href="https://www.linkedin.com/in/prateek-madnani" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://lnkd.in/gEN45Cwu" target="_blank" rel="noopener">The Pro Product Manager podcast</a>
+      </div>
+    </div>
+    <div class="entry-note">
+      <p>Based in Seattle, on Pacific time.</p>
+    </div>
+  </section>
+
+  <footer>Prateek Madnani · Seattle · 2026</footer>
+</main>
+
+<script>
+  (function () {
+    // In-page navigation: scroll with script so it works inside the artifact frame.
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      var id = link.getAttribute('href').slice(1);
+      var target = id && document.getElementById(id);
+      if (!target) return;
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Mark the section currently in view in the nav.
+    var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+    var byId = {};
+    navLinks.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          navLinks.forEach(function (a) { a.classList.remove('is-current'); a.removeAttribute('aria-current'); });
+          var current = byId[entry.target.id];
+          if (current) {
+            current.classList.add('is-current');
+            current.setAttribute('aria-current', 'location');
+            if (current.scrollIntoView && window.innerWidth <= 860) {
+              current.scrollIntoView({ block: 'nearest', inline: 'center' });
+            }
+          }
+        });
+      }, { rootMargin: '-35% 0px -60% 0px' });
+      Object.keys(byId).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    }
+
+    // Copy email, falling back to selecting the address.
+    var btn = document.getElementById('copy-email');
+    var emailEl = document.getElementById('email-text');
+    if (btn && emailEl) {
+      btn.addEventListener('click', function () {
+        var value = emailEl.textContent.trim();
+        function selectAddress() {
+          var range = document.createRange();
+          range.selectNodeContents(emailEl);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          btn.textContent = 'Address selected';
+        }
+        function reset() { setTimeout(function () { btn.textContent = 'Copy email'; }, 2200); }
+        try {
+          navigator.clipboard.writeText(value).then(function () {
+            btn.textContent = 'Copied';
+            reset();
+          }, function () { selectAddress(); reset(); });
+        } catch (err) {
+          selectAddress();
+          reset();
+        }
+      });
+    }
+  })();
+</script>
+</body>
+</html>
