@@ -147,6 +147,9 @@
   .item p{ margin: 0 0 var(--space-1); }
   .item-link{ font-weight: 600; font-size: 0.95rem; }
 
+  .case-video{ display:block; width:100%; max-width:100%; aspect-ratio:16/9; background:#1F1A17; border:1px solid var(--rule); border-radius:3px; margin:var(--space-3) 0; }
+  .video-cap{ color: var(--ink-soft); font-size: 0.88rem; margin: calc(-1 * var(--space-2)) 0 var(--space-3) !important; }
+
   /* ---------- skills ---------- */
   .skill-list{ display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: var(--space-3) var(--space-4); margin: 0; }
   .skill-list dt{ font-weight: 600; }
@@ -414,7 +417,12 @@
         <p class="meta">Independent case study · 2026</p>
         <p>In-N-Out breaks most of the rules a fast-food chain is supposed to follow, and it is still one of the most loved brands in the category. I wanted to understand why. This case study traces where the model came from, then follows how the company's three core values, quality, people and control, turn into concrete strategy.</p>
         <p>From there it looks at what that strategy produces economically, where it leaves the business exposed, and which lessons carry over to companies that will never sell a burger.</p>
-        <a class="item-link" href="in-n-out-case-study.html">View the case study deck</a>
+        <video class="case-video" controls preload="metadata" playsinline poster="in-n-out-case-study-poster.jpg" aria-label="Video walkthrough of the In-N-Out Burger case study">
+          <source src="in-n-out-case-study-video.mp4" type="video/mp4">
+          Your browser can't play this video. <a href="in-n-out-case-study-video.mp4">Download it instead.</a>
+        </video>
+        <p class="video-cap">Video walkthrough · about 3 minutes</p>
+        <a class="item-link" href="in-n-out-case-study.html">View the full case study deck</a>
       </div>
       <div class="entry-note">
         <p class="note-label">Strategy deck</p>
